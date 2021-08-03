@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <style>
+            body {
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            var places = [
+                { 
+                   city : "Malmo", 
+                   url : "https://www.buienradar.nl/weer/malmö/se/2692969",
+                   weerOnline : "https://www.weeronline.nl/Europa/Zweden/Malmo/4122654" 
+                },
+                {
+                    city : "Milaan", 
+                    url : "https://www.buienradar.nl/weer/milaan/it/3173435",
+                    weerOnline : "https://www.weeronline.nl/Europa/Italie/Milano/4878684" 
+                },
+                {
+                    city : "Berlijn", 
+                    url : "https://www.buienradar.nl/weer/berlijn/de/2950159",
+                    weerOnline : "https://www.weeronline.nl/Europa/Duitsland/Berlijn/4101095" 
+                },
+                {
+                    city : "Ljubljana", 
+                    url : "https://www.buienradar.nl/weer/ljubljana/si/3196359",
+                    weerOnline : "https://www.weeronline.nl/Europa/Slovenie/Ljubljana/4120959" 
+                },
+                {
+                    city : "Krk", 
+                    url : "https://www.buienradar.nl/weer/krk/hr/3197208",
+                    weerOnline : "https://www.weeronline.nl/Europa/Kroatie/Krk/4157261" 
+                },
+                {
+                    city : "Florence", 
+                    url : "https://www.buienradar.nl/weer/florence/it/3176959",
+                    weerOnline : "https://www.weeronline.nl/Europa/Italie/Florence/4298095" 
+                },
+                {
+                    city : "Olbia", 
+                    url : "https://www.buienradar.nl/weer/olbia/it/3172087",
+                    weerOnline : "https://www.weeronline.nl/Europa/Italie/Olbia/4298473" 
+                },
+                {
+                    city : "La Spezia", 
+                    url : "https://www.buienradar.nl/weer/la spezia/it/3175081",
+                    weerOnline : "https://www.weeronline.nl/Europa/Italie/La-Spezia/4303150" 
+                },
+                {
+                    city : "Straatsburg", 
+                    url : "https://www.buienradar.nl/weer/strasbourg/fr/2973783",
+                    weerOnline : "https://www.weeronline.nl/Europa/Frankrijk/Straatsburg/4278470" 
+                },
+                {
+                    city : "Maribor", 
+                    url : "https://www.buienradar.nl/weer/maribor/si/3195506",
+                    weerOnline : "https://www.weeronline.nl/Europa/Slovenie/Maribor/4120801" 
+                },
+                {
+                    city : "Orta San Giulio", 
+                    url : "https://www.buienradar.nl/weer/orta san giulio/it/3171899",
+                    weerOnline : "https://www.weeronline.nl/Europa/Italie/Orta-San-Giulio/4302272" 
+                },
+                {
+                    city : "Stuttgart", 
+                    url : "https://www.buienradar.nl/weer/stuttgart/de/2825297",
+                    weerOnline : "https://www.weeronline.nl/Europa/Duitsland/Stuttgart/4099566" 
+                },
+                {
+                    city : "Villach", 
+                    url : "https://www.buienradar.nl/weer/villach/at/2762372",
+                    weerOnline : "https://www.weeronline.nl/Europa/Oostenrijk/Villach/4115691/" 
+                }
+            ];
+        </script>
+    </head>
+    <body>
+        <div id="places">
+
+        </div>
+        <script type="text/javascript">
+            places.forEach( function(place) {
+                var token = "VX2SU57GWR5IQDI21ACBBEZU2Z89QWKJ";
+                var ttl = "43200";
+                var encodedUrl = encodeURIComponent(place.url + "/14daagse");
+                var brSS = `https://shot.screenshotapi.net/screenshot?token=${token}&url=${encodedUrl}&output=image&file_type=png&wait_for_event=load&selector=.buienradar-control%20.hide-buttons&ttl=${ttl}&cookies=OptanonAlertBoxClosed%3D2021-08-02T10%3A30%3A49.261Z&js=%24(%22%23onetrust-consent-sdk%2C%20.onboard-popup-container%2C%20.onboard-background%22).hide()%3B`;
+                
+                var WOencodedUrl = encodeURIComponent(place.weerOnline);
+                var woSS = `https://shot.screenshotapi.net/screenshot?token=${token}&url=${WOencodedUrl}&output=image&file_type=png&wait_for_event=load&selector=.elFmvL&ttl=${ttl}`;
+                
+                var newPlace = `<div><h2><a target="_blank" href="${place.url}">${place.city}</a> - <a target="_blank" href="${place.weerOnline}">weer online</a></h2><div><span><img style="width:600px" src="${brSS}" /></span><span><img style="width:600px" src="${woSS}" /></span></div<</div>`;
+
+                $("#places").append(newPlace)
+            });
+        </script>
+        <div>
+            <a target="_blank" href="https://app.screenshotapi.net/history">Screenshot API</a>
+        </div>
+    </body>
+</html>
