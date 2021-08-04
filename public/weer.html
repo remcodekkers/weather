@@ -76,10 +76,12 @@
                 var token = "VX2SU57GWR5IQDI21ACBBEZU2Z89QWKJ";
                 var ttl = "43200";
                 var encodedUrl = encodeURIComponent(place.url + "/14daagse");
-                var brSS = `https://shot.screenshotapi.net/screenshot?token=${token}&url=${encodedUrl}&output=image&file_type=png&wait_for_event=load&selector=.buienradar-control%20.hide-buttons&ttl=${ttl}&cookies=OptanonAlertBoxClosed%3D2021-08-02T10%3A30%3A49.261Z&js=%24(%22%23onetrust-consent-sdk%2C%20.onboard-popup-container%2C%20.onboard-background%22).hide()%3B`;
+                //var brSS = `https://shot.screenshotapi.net/screenshot?token=${token}&url=${encodedUrl}&output=image&file_type=png&wait_for_event=load&selector=.buienradar-control%20.hide-buttons&ttl=${ttl}&cookies=OptanonAlertBoxClosed%3D2021-08-02T10%3A30%3A49.261Z&js=%24(%22%23onetrust-consent-sdk%2C%20.onboard-popup-container%2C%20.onboard-background%22).hide()%3B`;
+                var brSS = `https://fetchscreenshot.weer.workers.dev/ss?url=${encodedUrl}`;
                 
                 var WOencodedUrl = encodeURIComponent(place.weerOnline);
-                var woSS = `https://shot.screenshotapi.net/screenshot?token=${token}&url=${WOencodedUrl}&output=image&file_type=png&wait_for_event=load&selector=.elFmvL&ttl=${ttl}`;
+                //var woSS = `https://shot.screenshotapi.net/screenshot?token=${token}&url=${WOencodedUrl}&output=image&file_type=png&wait_for_event=load&selector=.elFmvL&ttl=${ttl}`;
+                var woSS = `https://fetchscreenshot.weer.workers.dev/ss?url=${WOencodedUrl}`;
                 
                 var newPlace = `<div><h2><a target="_blank" href="${place.url}">${place.city}</a> - <a target="_blank" href="${place.weerOnline}">weer online</a></h2><div><span><img style="width:600px" src="${brSS}" /></span><span><img style="width:600px" src="${woSS}" /></span></div<</div>`;
 
