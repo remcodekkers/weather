@@ -74,7 +74,7 @@
         <script type="text/javascript">
             places.forEach( function(place) {
                 var token = "VX2SU57GWR5IQDI21ACBBEZU2Z89QWKJ";
-                var ttl = "";//"43200";
+                var ttl = "43200";
                 var encodedUrl = encodeURIComponent(place.url + "/14daagse");
                 var brSS = `https://shot.screenshotapi.net/screenshot?token=${token}&url=${encodedUrl}&output=image&file_type=png&wait_for_event=load&selector=.buienradar-control%20.hide-buttons&ttl=${ttl}&cookies=OptanonAlertBoxClosed%3D2021-08-02T10%3A30%3A49.261Z&js=%24(%22%23onetrust-consent-sdk%2C%20.onboard-popup-container%2C%20.onboard-background%22).hide()%3B`;
                 //var brSS = `https://fetchscreenshot.weer.workers.dev/ss?url=${encodedUrl}`;
